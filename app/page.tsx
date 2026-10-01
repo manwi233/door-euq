@@ -74,7 +74,7 @@ export default function HomePage() {
         </nav>
         <a
           className="btn btn-wa"
-          href={waLink("Namaste, mujhe door equipment ka quote chahiye.")}
+          href={waLink("hello sir")}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -93,7 +93,7 @@ export default function HomePage() {
             mil jayega.
           </p>
           <div className="hero-actions">
-            <WaButton message="Namaste, mujhe door equipment ka quote chahiye.">
+            <WaButton message="hello sir">
               WhatsApp par baat karo
             </WaButton>
             <a className="btn btn-line" href="#range">
@@ -136,7 +136,7 @@ export default function HomePage() {
           title="Seedha WhatsApp karo"
           text="Photo aur size bhejo. Rate isi chat mein aa jayega."
           label="Abhi WhatsApp karo"
-          message="Namaste DoorEqu, mujhe door ka quote chahiye."
+          message="hello sir"
         />
       </section>
 
@@ -150,7 +150,7 @@ export default function HomePage() {
           title="Kaunsa door chahiye?"
           text="Wooden, steel ya glass — WhatsApp par bata do."
           label="Door choose karo"
-          message="Namaste, mujhe door range dekhni hai. Quote chahiye."
+          message="hello sir"
         />
         <div className="grid-3">
           <article className="card">
@@ -163,7 +163,7 @@ export default function HomePage() {
             <div className="card-body">
               <h3>Wooden doors</h3>
               <p>Main door, bedroom aur flush doors. Teak, engineering wood aur laminate finish.</p>
-              <WaButton message="Namaste, mujhe wooden door chahiye. Rate batao.">
+              <WaButton message="hello sir">
                 Wooden door poochho
               </WaButton>
             </div>
@@ -178,7 +178,7 @@ export default function HomePage() {
             <div className="card-body">
               <h3>Steel security</h3>
               <p>Powder-coated steel doors with deadbolt. Home, shop aur godown ke liye.</p>
-              <WaButton message="Namaste, mujhe steel security door chahiye. Rate batao.">
+              <WaButton message="hello sir">
                 Steel door poochho
               </WaButton>
             </div>
@@ -193,7 +193,7 @@ export default function HomePage() {
             <div className="card-body">
               <h3>Glass & aluminium</h3>
               <p>Office entrance, slim frame glass doors aur stainless pull handles.</p>
-              <WaButton message="Namaste, mujhe glass aluminium door chahiye. Rate batao.">
+              <WaButton message="hello sir">
                 Glass door poochho
               </WaButton>
             </div>
@@ -204,7 +204,7 @@ export default function HomePage() {
           title="Apna size WhatsApp karo."
           text="Door ki height, width aur photo bhejo. Material aur rate isi chat mein mil jayega."
           label="Quote lo WhatsApp par"
-          message="Namaste DoorEqu, mujhe door ka quote chahiye. Size aur photo bhej raha hoon."
+          message="hello sir"
         />
       </section>
 
@@ -218,7 +218,7 @@ export default function HomePage() {
           title="Lock ya handle chahiye?"
           text="Model number ya photo bhejo, set ka rate aa jayega."
           label="Hardware WhatsApp karo"
-          message="Namaste, mujhe door hardware ka rate chahiye."
+          message="hello sir"
         />
         <div className="split">
           <Image
@@ -241,7 +241,7 @@ export default function HomePage() {
                 <div>
                   <h3>Handles & hinges</h3>
                   <p>Brass aur stainless finish. Door weight ke hisaab se hinge.</p>
-                  <WaButton message="Namaste, mujhe door handle aur hinge chahiye.">
+                  <WaButton message="hello sir">
                     Handle poochho
                   </WaButton>
                 </div>
@@ -261,7 +261,7 @@ export default function HomePage() {
           title="Hardware ka set chahiye?"
           text="Lock, handle aur hinge ek saath mangwao. Model number ya photo bhej do."
           label="Hardware poochho"
-          message="Namaste, mujhe door lock aur handle ka set chahiye. Photo bhej raha hoon."
+          message="hello sir"
         />
       </section>
 
@@ -274,7 +274,7 @@ export default function HomePage() {
               Purana frame check karte hain, naya door site par laate hain, aur
               lock tak fit karke chhodte hain.
             </p>
-            <WaButton message="Namaste DoorEqu, mujhe door fitting ke liye site visit chahiye.">
+            <WaButton message="hello sir">
               Fitting ke liye WhatsApp
             </WaButton>
             <ul className="steps after-btn">
@@ -290,7 +290,7 @@ export default function HomePage() {
                 <div>
                   <h3>Make & finish</h3>
                   <p>Door, frame aur hardware aapke size par.</p>
-                  <WaButton message="Namaste, mera door measure ho chuka hai. Finish discuss karni hai.">
+                  <WaButton message="hello sir">
                     Finish discuss karo
                   </WaButton>
                 </div>
@@ -316,7 +316,7 @@ export default function HomePage() {
           title="Free visit book karo."
           text="Area aur time likh do. Fitting team WhatsApp par confirm karegi."
           label="Visit book karo"
-          message="Namaste DoorEqu, mujhe door fitting ke liye site visit chahiye."
+          message="hello sir"
         />
       </section>
 
@@ -325,7 +325,7 @@ export default function HomePage() {
           title="Abhi message karo"
           text="Koi bhi door ya hardware — ek message kaafi hai."
           label="WhatsApp kholo"
-          message="Namaste DoorEqu, mujhe door equipment chahiye."
+          message="hello sir"
         />
       </section>
 
