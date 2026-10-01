@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const WHATSAPP_NUMBER = "919876543210";
+const WHATSAPP_NUMBER = "917737012198";
 
 function waLink(message: string) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
@@ -37,6 +37,38 @@ function WaButton({
   );
 }
 
+function PromoBanner({
+  src,
+  alt,
+  kicker,
+  title,
+  text,
+}: {
+  src: string;
+  alt: string;
+  kicker: string;
+  title: string;
+  text: string;
+}) {
+  return (
+    <section className="wrap">
+      <a
+        className="banner"
+        href={waLink("hello sir")}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Image src={src} alt={alt} width={1600} height={900} />
+        <span className="banner-copy">
+          <span className="banner-kicker">{kicker}</span>
+          <strong>{title}</strong>
+          <span>{text}</span>
+        </span>
+      </a>
+    </section>
+  );
+}
+
 function WaCenter({
   title,
   text,
@@ -62,10 +94,18 @@ function WaCenter({
 export default function HomePage() {
   return (
     <main>
+      <a
+        className="promo-bar"
+        href={waLink("hello sir")}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Reddy Anna Door · 10% OFF on doors, locks and fitting · WhatsApp 77370 12198
+      </a>
       <header className="wrap nav">
         <a className="brand" href="#top">
-          <span className="mark">D</span>
-          DoorEqu
+          <span className="mark">R</span>
+          Reddy Anna Door
         </a>
         <nav className="nav-links">
           <a href="#range">Range</a>
@@ -85,12 +125,12 @@ export default function HomePage() {
 
       <section className="wrap hero" id="top">
         <div>
-          <p className="eyebrow">Door equipment</p>
-          <h1>Ghar aur office ke liye mazboot darwaze.</h1>
+          <p className="eyebrow">Reddy Anna Door</p>
+          <h1>Ghar aur office ke darwaze, 10% off.</h1>
           <p className="lede">
             Wooden doors, steel security doors, glass entrances, locks aur
-            hardware — ek hi jagah. Size batao, photo bhejo, quote WhatsApp par
-            mil jayega.
+            hardware. Is mahine har order par 10% off. Size bhejo, rate WhatsApp
+            par aa jayega.
           </p>
           <div className="hero-actions">
             <WaButton message="hello sir">
@@ -100,6 +140,11 @@ export default function HomePage() {
               Range dekho
             </a>
           </div>
+          <ul className="chips">
+            <li>10% off</li>
+            <li>10% off on locks</li>
+            <li>10% off on fitting</li>
+          </ul>
           <div className="stats">
             <div>
               <strong>12+</strong>
@@ -124,31 +169,64 @@ export default function HomePage() {
             priority
           />
           <div className="badge">
-            <strong>Solid wood</strong>
-            <span>Brass lock aur handle ke saath</span>
+            <strong>10% off</strong>
+            <span>Reddy Anna Door · solid wood</span>
           </div>
+        </div>
+      </section>
+
+      <PromoBanner
+        src="/images/banner-wood.jpg"
+        alt="Wooden entrance door offer banner"
+        kicker="Reddy Anna Door"
+        title="10% off on door + hardware"
+        text="Poora set lo, bill par seedha 10% off. Tap karke WhatsApp karo."
+      />
+
+      <section className="wrap offers" id="offers">
+        <p className="eyebrow">Reddy Anna Door offers</p>
+        <h2>Jagah jagah 10% off.</h2>
+        <p className="sub">
+          Door, lock aur fitting — teeno par 10% off. WhatsApp par confirm karo.
+        </p>
+        <div className="offer-grid">
+          <article>
+            <strong>10% off</strong>
+            <p>Har wooden, steel aur glass door par seedha 10% off.</p>
+          </article>
+          <article>
+            <strong>Free measure</strong>
+            <p>Ghar ya shop ka size check, visit charge nahi.</p>
+          </article>
+          <article>
+            <strong>Fitting included</strong>
+            <p>Selected doors par frame fit aur alignment saath mein.</p>
+          </article>
+          <article>
+            <strong>Extra keys</strong>
+            <p>Main door lock ke saath ek extra key set.</p>
+          </article>
         </div>
       </section>
 
       <section className="wrap">
         <WaCenter
           dark
-          title="Seedha WhatsApp karo"
-          text="Photo aur size bhejo. Rate isi chat mein aa jayega."
-          label="Abhi WhatsApp karo"
+          title="10% off WhatsApp par lo"
+          text="Photo aur size bhejo. Reddy Anna Door ka rate isi chat mein aa jayega."
+          label="Offer ke liye WhatsApp"
           message="hello sir"
         />
       </section>
 
       <section className="wrap section" id="range">
-        <h2>Door range</h2>
+        <h2>Door range · 10% off</h2>
         <p className="sub">
-          Main entrance se factory gate tak. Har door ke saath frame, hinge aur
-          lock ka option milta hai.
+          Main entrance se factory gate tak. Har door par 10% off, frame aur lock ke saath.
         </p>
         <WaCenter
-          title="Kaunsa door chahiye?"
-          text="Wooden, steel ya glass — WhatsApp par bata do."
+          title="10% off wala door chahiye?"
+          text="Wooden, steel ya glass — Reddy Anna Door se WhatsApp par lo."
           label="Door choose karo"
           message="hello sir"
         />
@@ -161,6 +239,7 @@ export default function HomePage() {
               height={520}
             />
             <div className="card-body">
+              <span className="off-tag">10% off</span>
               <h3>Wooden doors</h3>
               <p>Main door, bedroom aur flush doors. Teak, engineering wood aur laminate finish.</p>
               <WaButton message="hello sir">
@@ -176,6 +255,7 @@ export default function HomePage() {
               height={520}
             />
             <div className="card-body">
+              <span className="off-tag">10% off</span>
               <h3>Steel security</h3>
               <p>Powder-coated steel doors with deadbolt. Home, shop aur godown ke liye.</p>
               <WaButton message="hello sir">
@@ -191,6 +271,7 @@ export default function HomePage() {
               height={520}
             />
             <div className="card-body">
+              <span className="off-tag">10% off</span>
               <h3>Glass & aluminium</h3>
               <p>Office entrance, slim frame glass doors aur stainless pull handles.</p>
               <WaButton message="hello sir">
@@ -201,22 +282,29 @@ export default function HomePage() {
         </div>
         <WaCenter
           dark
-          title="Apna size WhatsApp karo."
-          text="Door ki height, width aur photo bhejo. Material aur rate isi chat mein mil jayega."
+          title="Size bhejo, 10% off lo."
+          text="Height, width aur photo bhejo. Reddy Anna Door 10% off ke saath rate dega."
           label="Quote lo WhatsApp par"
           message="hello sir"
         />
       </section>
 
+      <PromoBanner
+        src="/images/banner-steel.jpg"
+        alt="Steel security door banner"
+        kicker="10% off"
+        title="Steel door par 10% off"
+        text="Shop aur ghar ke liye. Reddy Anna Door, free size check."
+      />
+
       <section className="wrap section" id="hardware">
         <h2>Locks, handles, closers</h2>
         <p className="sub">
-          Sirf darwaza nahi — poora hardware set. Mortise lock, lever handle,
-          hinge, door closer aur keys.
+          Hardware set par bhi 10% off. Mortise lock, lever handle, hinge aur door closer.
         </p>
         <WaCenter
-          title="Lock ya handle chahiye?"
-          text="Model number ya photo bhejo, set ka rate aa jayega."
+          title="Locks par bhi 10% off"
+          text="Model number ya photo bhejo. Reddy Anna Door rate WhatsApp par dega."
           label="Hardware WhatsApp karo"
           message="hello sir"
         />
@@ -258,8 +346,8 @@ export default function HomePage() {
         </div>
         <WaCenter
           dark
-          title="Hardware ka set chahiye?"
-          text="Lock, handle aur hinge ek saath mangwao. Model number ya photo bhej do."
+          title="Hardware set, 10% off"
+          text="Lock, handle aur hinge ek saath. Reddy Anna Door se 10% off par mangwao."
           label="Hardware poochho"
           message="hello sir"
         />
@@ -268,7 +356,7 @@ export default function HomePage() {
       <section className="wrap section" id="install">
         <div className="split">
           <div>
-            <p className="eyebrow">On-site fitting</p>
+            <p className="eyebrow">Reddy Anna Door · 10% off</p>
             <h2>Measure, supply, fit.</h2>
             <p className="sub">
               Purana frame check karte hain, naya door site par laate hain, aur
@@ -313,25 +401,35 @@ export default function HomePage() {
         </div>
         <WaCenter
           dark
-          title="Free visit book karo."
-          text="Area aur time likh do. Fitting team WhatsApp par confirm karegi."
+          title="Visit book karo, 10% off lo."
+          text="Area aur time likh do. Reddy Anna Door fitting team WhatsApp par confirm karegi."
           label="Visit book karo"
           message="hello sir"
         />
       </section>
 
+      <PromoBanner
+        src="/images/banner-hardware.jpg"
+        alt="Door lock and handle banner"
+        kicker="Reddy Anna Door · 10% off"
+        title="Lock set par 10% off"
+        text="Handle, hinge aur extra key. WhatsApp par hello sir likh ke bhejo."
+      />
+
       <section className="wrap">
         <WaCenter
-          title="Abhi message karo"
-          text="Koi bhi door ya hardware — ek message kaafi hai."
+          title="Reddy Anna Door, 10% off"
+          text="Koi bhi door ya hardware — hello sir likh ke WhatsApp karo."
           label="WhatsApp kholo"
           message="hello sir"
         />
       </section>
 
       <footer className="wrap footer">
-        <span>DoorEqu · Door equipment & hardware</span>
-        <span>WhatsApp: +91 98765 43210</span>
+        <span>Reddy Anna Door · 10% off on doors & hardware</span>
+        <a href={waLink("hello sir")} target="_blank" rel="noopener noreferrer">
+          WhatsApp: +91 77370 12198
+        </a>
       </footer>
     </main>
   );

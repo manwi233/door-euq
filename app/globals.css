@@ -42,6 +42,16 @@ a {
   margin: 0 auto;
 }
 
+.promo-bar {
+  display: block;
+  padding: 10px 16px;
+  background: #8d2b1f;
+  color: #fff8f2;
+  text-align: center;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
 .nav {
   position: sticky;
   top: 0;
@@ -125,7 +135,56 @@ h1 {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  margin-bottom: 28px;
+  margin-bottom: 18px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 22px;
+  padding: 0;
+  list-style: none;
+}
+
+.chips li {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #efe4d2;
+  color: var(--brass-deep);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.offers {
+  padding-bottom: 12px;
+}
+
+.offer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.offer-grid article {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px 16px 20px;
+  min-height: 100%;
+}
+
+.offer-grid strong {
+  display: block;
+  margin-bottom: 8px;
+  font-family: Fraunces, serif;
+  font-size: 1.35rem;
+}
+
+.offer-grid p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
 }
 
 .btn {
@@ -251,6 +310,19 @@ h1 {
   padding: 18px 18px 20px;
 }
 
+.off-tag {
+  display: inline-flex;
+  margin-bottom: 8px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #8d2b1f;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .card h3 {
   margin: 0 0 8px;
   font-size: 1.35rem;
@@ -345,6 +417,57 @@ h1 {
   font-family: Fraunces, serif;
 }
 
+.banner {
+  position: relative;
+  display: block;
+  margin: 8px 0 36px;
+  border-radius: 20px;
+  overflow: hidden;
+  color: #fff;
+  min-height: 220px;
+}
+
+.banner img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.banner-copy {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 6px;
+  padding: 28px;
+  background: linear-gradient(
+    90deg,
+    rgba(18, 14, 10, 0.78),
+    rgba(18, 14, 10, 0.12)
+  );
+}
+
+.banner-kicker {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.banner-copy strong {
+  font-family: Fraunces, serif;
+  font-size: clamp(1.7rem, 3vw, 2.6rem);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  max-width: 16ch;
+}
+
+.banner-copy span:last-child {
+  max-width: 28rem;
+  color: rgba(255, 255, 255, 0.88);
+}
+
 .footer {
   padding: 28px 0 40px;
   border-top: 1px solid var(--line);
@@ -355,29 +478,102 @@ h1 {
   font-size: 0.92rem;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 980px) {
+  .hero,
+  .split {
+    grid-template-columns: 1fr;
+  }
+
+  .offer-grid,
+  .grid-3 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero {
+    gap: 28px;
+    padding: 28px 0 40px;
+  }
+
+  .hero-photo img,
+  .split img {
+    height: 360px;
+  }
+
+}
+
+@media (max-width: 680px) {
+  .wrap {
+    width: min(1120px, calc(100% - 28px));
+  }
+
+  .promo-bar {
+    font-size: 0.8rem;
+    line-height: 1.35;
+  }
+
+  .brand {
+    font-size: 1.05rem;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    padding: 12px 0;
+  }
+
   .nav-links {
-    display: none;
+    order: 3;
+    width: 100%;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 2px;
   }
 
   .hero,
   .grid-3,
   .split,
+  .offer-grid,
   .footer {
     grid-template-columns: 1fr;
-    display: grid;
+  }
+
+  .hero-actions .btn,
+  .wa-center .btn-wa,
+  .steps .btn-wa {
+    width: 100%;
   }
 
   .hero-photo img,
-  .split img {
-    height: 280px;
+  .split img,
+  .banner img {
+    height: 220px;
+  }
+
+  .banner-copy {
+    padding: 16px;
+    background: linear-gradient(180deg, rgba(18, 14, 10, 0.05), rgba(18, 14, 10, 0.82));
   }
 
   .badge {
     left: 12px;
+    bottom: 12px;
+    max-width: 180px;
   }
 
   .stats {
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .stats strong {
+    font-size: 1.25rem;
+  }
+
+  .footer {
+    display: grid;
+  }
+
+  h1 {
+    font-size: clamp(2.15rem, 10vw, 3rem);
   }
 }

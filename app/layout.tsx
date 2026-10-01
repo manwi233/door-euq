@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "DoorEqu | Door Equipment & Hardware",
+  title: "Reddy Anna Door | Doors, Locks & Hardware",
   description:
-    "Wooden doors, steel security doors, glass entrances, locks and hardware. Quote lo WhatsApp par.",
+    "Reddy Anna Door — wooden doors, steel security doors, glass entrances and hardware. 10% off. WhatsApp par quote lo.",
 };
 
 export default function RootLayout({
