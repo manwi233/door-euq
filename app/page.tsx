@@ -1,10 +1,5 @@
+import { WaLink } from "@/components/whatsapp-link";
 import Image from "next/image";
-
-const WHATSAPP_NUMBER = "917737012198";
-
-function waLink(message: string) {
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-}
 
 function WhatsAppIcon() {
   return (
@@ -19,21 +14,16 @@ function WhatsAppIcon() {
 
 function WaButton({
   children,
-  message,
+  source,
 }: {
   children: React.ReactNode;
-  message: string;
+  source: string;
 }) {
   return (
-    <a
-      className="btn btn-wa"
-      href={waLink(message)}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <WaLink source={source} className="btn btn-wa">
       <WhatsAppIcon />
       {children}
-    </a>
+    </WaLink>
   );
 }
 
@@ -52,19 +42,24 @@ function PromoBanner({
 }) {
   return (
     <section className="wrap">
-      <a
-        className="banner"
-        href={waLink("hello sir")}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <WaLink source="photo-banner" className="banner">
         <Image src={src} alt={alt} width={1600} height={900} />
         <span className="banner-copy">
           <span className="banner-kicker">{kicker}</span>
           <strong>{title}</strong>
           <span>{text}</span>
         </span>
-      </a>
+      </WaLink>
+    </section>
+  );
+}
+
+function SaleBanner({ src, alt }: { src: string; alt: string }) {
+  return (
+    <section className="wrap">
+      <WaLink source="reddy-banner" className="sale-banner">
+        <Image src={src} alt={alt} width={1400} height={280} />
+      </WaLink>
     </section>
   );
 }
@@ -73,20 +68,20 @@ function WaCenter({
   title,
   text,
   label,
-  message,
+  source,
   dark = false,
 }: {
   title: string;
   text: string;
   label: string;
-  message: string;
+  source: string;
   dark?: boolean;
 }) {
   return (
     <div className={dark ? "wa-center dark" : "wa-center"}>
       <h2>{title}</h2>
       <p>{text}</p>
-      <WaButton message={message}>{label}</WaButton>
+      <WaButton source={source}>{label}</WaButton>
     </div>
   );
 }
@@ -94,14 +89,9 @@ function WaCenter({
 export default function HomePage() {
   return (
     <main>
-      <a
-        className="promo-bar"
-        href={waLink("hello sir")}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <WaLink source="top-bar" className="promo-bar">
         Reddy Anna Door · 10% OFF on doors, locks and fitting · WhatsApp 77370 12198
-      </a>
+      </WaLink>
       <header className="wrap nav">
         <a className="brand" href="#top">
           <span className="mark">R</span>
@@ -112,15 +102,10 @@ export default function HomePage() {
           <a href="#hardware">Hardware</a>
           <a href="#install">Installation</a>
         </nav>
-        <a
-          className="btn btn-wa"
-          href={waLink("hello sir")}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <WaLink source="header" className="btn btn-wa">
           <WhatsAppIcon />
           WhatsApp
-        </a>
+        </WaLink>
       </header>
 
       <section className="wrap hero" id="top">
@@ -133,7 +118,7 @@ export default function HomePage() {
             par aa jayega.
           </p>
           <div className="hero-actions">
-            <WaButton message="hello sir">
+            <WaButton source="hero-button">
               WhatsApp par baat karo
             </WaButton>
             <a className="btn btn-line" href="#range">
@@ -161,19 +146,26 @@ export default function HomePage() {
           </div>
         </div>
         <div className="hero-photo">
-          <Image
-            src="/images/hero-door.jpg"
-            alt="Premium wooden entrance door with brass handle"
-            width={960}
-            height={640}
-            priority
-          />
+          <WaLink source="hero-image" className="photo-link">
+            <Image
+              src="/images/hero-door.jpg"
+              alt="Premium wooden entrance door with brass handle"
+              width={960}
+              height={640}
+              priority
+            />
+          </WaLink>
           <div className="badge">
             <strong>10% off</strong>
             <span>Reddy Anna Door · solid wood</span>
           </div>
         </div>
       </section>
+
+      <SaleBanner
+        src="/images/reddy-shop.jpg"
+        alt="Reddy Anna 10 percent off, shop now"
+      />
 
       <PromoBanner
         src="/images/banner-wood.jpg"
@@ -215,9 +207,14 @@ export default function HomePage() {
           title="10% off WhatsApp par lo"
           text="Photo aur size bhejo. Reddy Anna Door ka rate isi chat mein aa jayega."
           label="Offer ke liye WhatsApp"
-          message="hello sir"
+          source="whatsapp"
         />
       </section>
+
+      <SaleBanner
+        src="/images/reddy-contact.png"
+        alt="Reddy Anna 10 percent off, contact us"
+      />
 
       <section className="wrap section" id="range">
         <h2>Door range · 10% off</h2>
@@ -228,53 +225,59 @@ export default function HomePage() {
           title="10% off wala door chahiye?"
           text="Wooden, steel ya glass — Reddy Anna Door se WhatsApp par lo."
           label="Door choose karo"
-          message="hello sir"
+          source="whatsapp"
         />
         <div className="grid-3">
           <article className="card">
-            <Image
-              src="/images/hero-door.jpg"
-              alt="Teak style wooden main door"
-              width={800}
-              height={520}
-            />
+            <WaLink source="wooden-image" className="photo-link">
+              <Image
+                src="/images/hero-door.jpg"
+                alt="Teak style wooden main door"
+                width={800}
+                height={520}
+              />
+            </WaLink>
             <div className="card-body">
               <span className="off-tag">10% off</span>
               <h3>Wooden doors</h3>
               <p>Main door, bedroom aur flush doors. Teak, engineering wood aur laminate finish.</p>
-              <WaButton message="hello sir">
+              <WaButton source="whatsapp">
                 Wooden door poochho
               </WaButton>
             </div>
           </article>
           <article className="card">
-            <Image
-              src="/images/steel-door.jpg"
-              alt="Charcoal steel security door in a showroom"
-              width={800}
-              height={520}
-            />
+            <WaLink source="steel-image" className="photo-link">
+              <Image
+                src="/images/steel-door.jpg"
+                alt="Charcoal steel security door in a showroom"
+                width={800}
+                height={520}
+              />
+            </WaLink>
             <div className="card-body">
               <span className="off-tag">10% off</span>
               <h3>Steel security</h3>
               <p>Powder-coated steel doors with deadbolt. Home, shop aur godown ke liye.</p>
-              <WaButton message="hello sir">
+              <WaButton source="whatsapp">
                 Steel door poochho
               </WaButton>
             </div>
           </article>
           <article className="card">
-            <Image
-              src="/images/glass-door.jpg"
-              alt="Black aluminium glass office entrance"
-              width={800}
-              height={520}
-            />
+            <WaLink source="glass-image" className="photo-link">
+              <Image
+                src="/images/glass-door.jpg"
+                alt="Black aluminium glass office entrance"
+                width={800}
+                height={520}
+              />
+            </WaLink>
             <div className="card-body">
               <span className="off-tag">10% off</span>
               <h3>Glass & aluminium</h3>
               <p>Office entrance, slim frame glass doors aur stainless pull handles.</p>
-              <WaButton message="hello sir">
+              <WaButton source="whatsapp">
                 Glass door poochho
               </WaButton>
             </div>
@@ -285,9 +288,14 @@ export default function HomePage() {
           title="Size bhejo, 10% off lo."
           text="Height, width aur photo bhejo. Reddy Anna Door 10% off ke saath rate dega."
           label="Quote lo WhatsApp par"
-          message="hello sir"
+          source="whatsapp"
         />
       </section>
+
+      <SaleBanner
+        src="/images/reddy-shop.jpg"
+        alt="Reddy Anna shop now, 10 percent off"
+      />
 
       <PromoBanner
         src="/images/banner-steel.jpg"
@@ -306,15 +314,17 @@ export default function HomePage() {
           title="Locks par bhi 10% off"
           text="Model number ya photo bhejo. Reddy Anna Door rate WhatsApp par dega."
           label="Hardware WhatsApp karo"
-          message="hello sir"
+          source="whatsapp"
         />
         <div className="split">
-          <Image
-            src="/images/door-hardware.jpg"
-            alt="Brass handle, mortise lock, hinges and door closer"
-            width={900}
-            height={680}
-          />
+          <WaLink source="hardware-image" className="photo-link">
+            <Image
+              src="/images/door-hardware.jpg"
+              alt="Brass handle, mortise lock, hinges and door closer"
+              width={900}
+              height={680}
+            />
+          </WaLink>
           <div>
             <ul className="steps">
               <li>
@@ -329,7 +339,7 @@ export default function HomePage() {
                 <div>
                   <h3>Handles & hinges</h3>
                   <p>Brass aur stainless finish. Door weight ke hisaab se hinge.</p>
-                  <WaButton message="hello sir">
+                  <WaButton source="whatsapp">
                     Handle poochho
                   </WaButton>
                 </div>
@@ -349,7 +359,7 @@ export default function HomePage() {
           title="Hardware set, 10% off"
           text="Lock, handle aur hinge ek saath. Reddy Anna Door se 10% off par mangwao."
           label="Hardware poochho"
-          message="hello sir"
+          source="whatsapp"
         />
       </section>
 
@@ -362,7 +372,7 @@ export default function HomePage() {
               Purana frame check karte hain, naya door site par laate hain, aur
               lock tak fit karke chhodte hain.
             </p>
-            <WaButton message="hello sir">
+            <WaButton source="whatsapp">
               Fitting ke liye WhatsApp
             </WaButton>
             <ul className="steps after-btn">
@@ -378,7 +388,7 @@ export default function HomePage() {
                 <div>
                   <h3>Make & finish</h3>
                   <p>Door, frame aur hardware aapke size par.</p>
-                  <WaButton message="hello sir">
+                  <WaButton source="whatsapp">
                     Finish discuss karo
                   </WaButton>
                 </div>
@@ -392,19 +402,21 @@ export default function HomePage() {
               </li>
             </ul>
           </div>
-          <Image
-            src="/images/door-install.jpg"
-            alt="Door frame being fitted on site"
-            width={960}
-            height={640}
-          />
+          <WaLink source="install-image" className="photo-link">
+            <Image
+              src="/images/door-install.jpg"
+              alt="Door frame being fitted on site"
+              width={960}
+              height={640}
+            />
+          </WaLink>
         </div>
         <WaCenter
           dark
           title="Visit book karo, 10% off lo."
           text="Area aur time likh do. Reddy Anna Door fitting team WhatsApp par confirm karegi."
           label="Visit book karo"
-          message="hello sir"
+          source="whatsapp"
         />
       </section>
 
@@ -421,15 +433,21 @@ export default function HomePage() {
           title="Reddy Anna Door, 10% off"
           text="Koi bhi door ya hardware — hello sir likh ke WhatsApp karo."
           label="WhatsApp kholo"
-          message="hello sir"
+          source="whatsapp"
         />
       </section>
 
+      <SaleBanner
+        src="/images/reddy-contact.png"
+        alt="Reddy Anna contact us, 10 percent off"
+      />
+
       <footer className="wrap footer">
         <span>Reddy Anna Door · 10% off on doors & hardware</span>
-        <a href={waLink("hello sir")} target="_blank" rel="noopener noreferrer">
+        <WaLink source="footer" className="footer-wa">
           WhatsApp: +91 77370 12198
-        </a>
+        </WaLink>
+        <a href="/admin">Admin</a>
       </footer>
     </main>
   );

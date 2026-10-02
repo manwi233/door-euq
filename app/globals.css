@@ -417,6 +417,85 @@ h1 {
   font-family: Fraunces, serif;
 }
 
+.photo-link {
+  display: block;
+  cursor: pointer;
+}
+
+.sale-banner {
+  display: block;
+  margin: 8px 0 28px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.sale-banner img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background: #fff;
+}
+
+.admin {
+  min-height: 100vh;
+  padding: 48px 0 64px;
+}
+
+.admin-card h1 {
+  margin-bottom: 8px;
+}
+
+.admin-totals {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 8px 0 28px;
+}
+
+.admin-totals div {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.admin-totals strong {
+  display: block;
+  font-family: Fraunces, serif;
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.admin-totals span,
+.admin-error {
+  color: var(--ink-soft);
+}
+
+.admin-list {
+  list-style: none;
+  margin: 0 0 28px;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.admin-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
+.footer-wa {
+  font-weight: 700;
+}
+
 .banner {
   position: relative;
   display: block;
